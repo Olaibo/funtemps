@@ -1,15 +1,16 @@
 package main
 
 import (
-	"conv"
 	"flag"
 	"fmt"
+
+	"github.com/RobertRegen/funtemps/conv"
 )
 
 // Definerer flag-variablene i hoved-"scope"
-var fahrenheit float64
-var celsius float64
-var kelvin float64
+var fahr float64
+var cels float64
+var kelv float64
 var out string
 var funfacts string
 
@@ -25,14 +26,14 @@ func init() {
 	*/
 
 	// Definerer og initialiserer flagg-variablene
-	flag.Float64Var(&fahrenheit, "F", 0.0, "temperatur i grader fahrenheit")
+	flag.Float64Var(&fahr, "F", 0.0, "temperatur i grader fahrenheit")
 	// Du må selv definere flag-variablene for "C" og "K"
-	flag.Float64Var(&celsius, "C", 0.0, "temperatur i grader celsius")
-	flag.Float64Var(&kelvin, "K", 0.0, "temperatur i grader kelvin")
+	flag.Float64Var(&cels, "C", 0.0, "temperatur i grader celsius")
+	flag.Float64Var(&kelv, "K", 0.0, "temperatur i grader kelvin")
 	flag.StringVar(&out, "out", "C", "beregne temperatur i C - celsius, F - farhenheit, K- Kelvin")
 	flag.StringVar(&funfacts, "funfacts", "sun", "\"fun-facts\" om sun - Solen, luna - Månen og terra - Jorden")
 	// Du må selv definere flag-variabelen for -t flagget, som bestemmer
-	// hvilken temperaturskala skal brukes når funfacts skal vises
+	// hvilken temperaturskala som skal brukes når funfacts skal vises
 
 }
 
@@ -64,7 +65,7 @@ func main() {
 	*/
 
 	// Her er noen eksempler du kan bruke i den manuelle testingen
-	fmt.Println(fahrenheit, out, funfacts)
+	fmt.Println(fahr, out, funfacts)
 
 	fmt.Println("len(flag.Args())", len(flag.Args()))
 	fmt.Println("flag.NFlag()", flag.NFlag())
@@ -84,33 +85,33 @@ func main() {
 		// skal returnere °C
 		//fmt.Println("0°F er -17.78°C")
 
-		fmt.Println(fahrenheit, f, erlik, conv.FarhenheitToCelsius(fahrenheit), c)
+		fmt.Println(fahr, f, erlik, conv.FarhenheitToCelsius(fahr), c)
 
 	}
 
 	//CelsiusToFahrenheit
 	if out == "F" && isFlagPassed("C") {
-		fmt.Println(celsius, c, erlik, conv.CelsiusToFahrenheit(celsius), f)
+		fmt.Println(cels, c, erlik, conv.CelsiusToFahrenheit(cels), f)
 	}
 
 	//FahrenheitToKelvin
 	if out == "K" && isFlagPassed("F") {
-		fmt.Println(fahrenheit, f, erlik, conv.FahrenheitToKelvin(fahrenheit), k)
+		fmt.Println(fahr, f, erlik, conv.FahrenheitToKelvin(fahr), k)
 	}
 
 	//KelvinToFahrenheit
 	if out == "F" && isFlagPassed("K") {
-		fmt.Println(kelvin, k, erlik, conv.KelvinToFahrenheit(kelvin), f)
+		fmt.Println(kelv, k, erlik, conv.KelvinToFahrenheit(kelv), f)
 	}
 
 	//CelsiusToKelvin
 	if out == "K" && isFlagPassed("C") {
-		fmt.Println(celsius, c, erlik, conv.CelsiusToKelvin(celsius), k)
+		fmt.Println(cels, c, erlik, conv.CelsiusToKelvin(cels), k)
 	}
 
 	//KelvinToCelsius
 	if out == "C" && isFlagPassed("K") {
-		fmt.Println(kelvin, k, erlik, conv.KelvinToCelsius(kelvin), c)
+		fmt.Println(kelv, k, erlik, conv.KelvinToCelsius(kelv), c)
 	}
 
 }
