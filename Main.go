@@ -67,12 +67,12 @@ func main() {
 	*/
 
 	// Her er noen eksempler du kan bruke i den manuelle testingen
-	fmt.Println(fahr, out, funfacts)
+	// fmt.Println(fahr, out, funfacts)
 
-	fmt.Println("len(flag.Args())", len(flag.Args()))
-	fmt.Println("flag.NFlag()", flag.NFlag())
+	// fmt.Println("len(flag.Args())", len(flag.Args()))
+	// fmt.Println("flag.NFlag()", flag.NFlag())
 
-	fmt.Println(isFlagPassed("out"))
+	// fmt.Println(isFlagPassed("out"))
 
 	// Eksempel på enkel logikk
 
