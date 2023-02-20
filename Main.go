@@ -14,6 +14,8 @@ var kelv float64
 var out string
 var funfacts string
 
+var Svar float64
+
 // Bruker init (som anbefalt i dokumentasjonen) for å sikre at flagvariablene
 // er initialisert.
 func init() {
@@ -85,33 +87,75 @@ func main() {
 		// skal returnere °C
 		//fmt.Println("0°F er -17.78°C")
 
-		fmt.Println(fahr, f, erlik, conv.FarhenheitToCelsius(fahr), c)
+		Svar = conv.FarhenheitToCelsius(fahr)
+
+		fmt.Printf("%.9g %s %s", fahr, f, erlik)
+		if Svar == float64(int(Svar)) {
+			fmt.Printf("%d %s\n", int(Svar), c) //printer om Svar == heltall
+		} else {
+			fmt.Printf("%.2f %s\n", Svar, c) //printer om Svar == decimaltall
+		}
 
 	}
 
 	//CelsiusToFahrenheit
 	if out == "F" && isFlagPassed("C") {
-		fmt.Println(cels, c, erlik, conv.CelsiusToFahrenheit(cels), f)
+		Svar = conv.CelsiusToFahrenheit(cels)
+
+		fmt.Printf("%.9g %s %s", cels, c, erlik)
+		if Svar == float64(int(Svar)) {
+			fmt.Printf("%d %s\n ", int(Svar), f) //printer om Svar == heltall
+		} else {
+			fmt.Printf("%.2f %s\n ", Svar, f) //printer om Svar == decimaltall
+		}
 	}
 
 	//FahrenheitToKelvin
 	if out == "K" && isFlagPassed("F") {
-		fmt.Println(fahr, f, erlik, conv.FahrenheitToKelvin(fahr), k)
+		Svar = conv.FahrenheitToKelvin(fahr)
+
+		fmt.Printf("%.9g %s %s", fahr, f, erlik)
+		if Svar == float64(int(Svar)) {
+			fmt.Printf("%d %s\n", int(Svar), k) //printer om Svar == heltall
+		} else {
+			fmt.Printf("%.2f %s\n", Svar, k) //printer om Svar == decimaltall
+		}
 	}
 
 	//KelvinToFahrenheit
 	if out == "F" && isFlagPassed("K") {
-		fmt.Println(kelv, k, erlik, conv.KelvinToFahrenheit(kelv), f)
+		Svar = conv.KelvinToFahrenheit(kelv)
+
+		fmt.Printf("%.9g %s %s", kelv, k, erlik)
+		if Svar == float64(int(Svar)) {
+			fmt.Printf("%d %s\n", int(Svar), f) //printer om Svar == heltall
+		} else {
+			fmt.Printf("%.2f %s\n", Svar, f) //printer om Svar == decimaltall
+		}
 	}
 
 	//CelsiusToKelvin
 	if out == "K" && isFlagPassed("C") {
-		fmt.Println(cels, c, erlik, conv.CelsiusToKelvin(cels), k)
+		Svar = conv.CelsiusToKelvin(cels)
+
+		fmt.Printf("%.9g %s %s", cels, c, erlik)
+		if Svar == float64(int(Svar)) {
+			fmt.Printf("%d %s\n", int(Svar), k) //printer om Svar == heltall
+		} else {
+			fmt.Printf("%.2f %s\n", Svar, k) //printer om Svar == decimaltall
+		}
 	}
 
 	//KelvinToCelsius
 	if out == "C" && isFlagPassed("K") {
-		fmt.Println(kelv, k, erlik, conv.KelvinToCelsius(kelv), c)
+		Svar = conv.KelvinToCelsius(kelv)
+
+		fmt.Printf("%.9g %s %s", kelv, k, erlik)
+		if Svar == float64(int(Svar)) {
+			fmt.Printf("%d %s\n", int(Svar), c) //printer om Svar == heltall
+		} else {
+			fmt.Printf("%.2f %s\n", Svar, c) //printer om Svar == decimaltall
+		}
 	}
 
 }
