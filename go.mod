@@ -1,3 +1,3 @@
-module github.com/RobertRegen/funtemps
+module github.com/Olaibo/funtemps
 
 go 1.19
